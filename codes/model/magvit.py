@@ -467,8 +467,8 @@ class MaxViTBlock(nn.Module):
         Returns:
             output (torch.Tensor): Output tensor of the shape [B, C_out, H // 2, W // 2] (downscaling is optional)
         """
-        # output = self.grid_transformer(self.block_transformer(self.mb_conv(input)))
-        output = self.mb_conv(self.grid_transformer(input))
+        output = self.grid_transformer(self.block_transformer(self.mb_conv(input)))
+        #  output = self.mb_conv(self.grid_transformer(input))
         return output
 
 
