@@ -149,7 +149,7 @@ To reproduce the evaluation results (PSNR, SSIM, and LPIPS metrics) on the UCMer
 
 The evaluation code uses metrics from [BasicSR](https://github.com/XPixelGroup/BasicSR) for accurate computation.
 
-`
+
 ## Citation
 
 If you find this code useful for your research, please cite our paper:
