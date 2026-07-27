@@ -95,8 +95,6 @@ The train/val data pathes are set in [data/__init__.py](codes/data/__init__.py)
 
 ## Testing
 
-Pre-trained TransENet models for the UCMerced and AID datasets are available here:  
-[Baidu Drive](https://pan.baidu.com/s/1lvAyTagbBf5GWUOcuEkyrQ) (Password: `w7ct`) | [Google Drive](https://drive.google.com/file/d/19nH1Plh2M-Z47iXG0-Ghq-Orh33n787w/view)
 
 Before running the test, you need to manually set the input and output paths inside the [demo_deploy.py](codes/demo_deploy.py) file:
 
