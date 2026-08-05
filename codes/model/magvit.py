@@ -638,12 +638,19 @@ class MAGVIT(nn.Module):
         in_chans = 3
         if in_chans == 3:
             rgb_mean = (0.4488, 0.4371, 0.4040)
+            rgb_std = (1.0, 1.0, 1.0)
             self.mean = torch.Tensor(rgb_mean).view(1, 3, 1, 1)
         else:
+            rgb_mean = (0.0,)
+            rgb_std = (1.0,)
             self.mean = torch.zeros(1, 1, 1, 1)
-        # self.stages = []
-        self.sub_mean = common.MeanShift(args.rgb_range)
-        self.add_mean = common.MeanShift(args.rgb_range, sign=1)
+        
+        self.sub_mean = common.MeanShift(
+            args.rgb_range, rgb_mean, rgb_std
+        )
+        self.add_mean = common.MeanShift(
+            args.rgb_range, rgb_mean, rgb_std, sign=1
+        )
         
         # for index, (depth, channel) in enumerate(zip(self.depths, self.out_channels)):
             # self.stages.append( 
