@@ -2,7 +2,7 @@
 Official PyTorch implementation of “MAG-ViT: Multi-Attention Grid Vision Transformer for Efficient and Classification-Aware Remote Sensing Super Resolution.”
 
 Remote sensing applications need high-resolution imagery, but hardware and acquisition constraints often limit image quality. While Vision Transformers (ViTs) have advanced RSISR (Remote Sensing Image Super-Resolution), they struggle with high computational costs and limited contextual understanding. MAG-ViT addresses these challenges by combining local and global self-attention efficiently with linear complexity.
-At the heart of MAG-ViT is the HaloMBConv module, which integrates halo-based attention and mobile bottleneck convolutions to enhance spatial details while reducing redundant computations. The model uses a dual-attention strategy: fixed windows for local features and grid windows for capturing broader context, strengthened by residual connections. Experiments on UCMerced and AID datasets show that MAG-ViT achieves up to 1.1 dB PSNR and 0.03 SSIM improvements over state-of-the-art methods, while offering faster inference than diffusion-based models making it highly suitable for practical remote sensing tasks.
+At the heart of MAG-ViT is the HaloMBConv module, which integrates halo-based attention and mobile bottleneck convolutions to enhance spatial details while reducing redundant computations. The model uses a dual-attention strategy: fixed windows for local features and grid windows for capturing broader context, strengthened by residual connections. Experiments on the UCMerced and AID datasets show that MAG-ViT achieves the highest SSIM in all six evaluated dataset-scale configurations and the highest PSNR in five of the six configurations. In the settings where MAG-ViT ranks first, its improvements over the next-best competing results reach up to 1.16 dB in PSNR and 0.0134 in SSIM.
 
 ## Requirements
 - Python 3.6+
@@ -153,10 +153,15 @@ The evaluation code uses metrics from [BasicSR](https://github.com/XPixelGroup/B
 If you find this code useful for your research, please cite our paper:
 
 ``````
-@article{ali2024magvit,
-  title     = {MAG-ViT: Multi-Attention Grid Vision Transformer for High-Fidelity Super-Resolution in Remote Sensing},
-  journal   = {Under Review / Preprint},
-  year      = {2026},
+@article{ali2026magvit,
+  author  = {Ali, Anas M. and Benjdira, Bilel and Boulila, Wadii and
+             El-Rabaie, El-Sayed M. and Abd El-Samie, Fathi E. and
+             Ramadan, Khalil F.},
+  title   = {MAG-ViT: Multi-Attention Grid Vision Transformer for
+             Efficient and Classification-Aware Remote Sensing
+             Super Resolution},
+  year    = {2026},
+  note    = {Accepted for publication}
 }
 ``````
 ## Acknowledgements 
