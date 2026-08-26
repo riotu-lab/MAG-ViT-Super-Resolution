@@ -153,16 +153,16 @@ The evaluation code uses metrics from [BasicSR](https://github.com/XPixelGroup/B
 If you find this code useful for your research, please cite our paper:
 
 ``````
-@article{ali2026magvit,
-  author  = {Ali, Anas M. and Benjdira, Bilel and Boulila, Wadii and
-             El-Rabaie, El-Sayed M. and Abd El-Samie, Fathi E. and
-             Ramadan, Khalil F.},
-  title   = {MAG-ViT: Multi-Attention Grid Vision Transformer for
-             Efficient and Classification-Aware Remote Sensing
-             Super Resolution},
-  year    = {2026},
-  note    = {Accepted for publication}
-}
+@ARTICLE{11664353,
+  author={Ali, Anas M. and Benjdira, Bilel and Boulila, Wadii and El-Rabaie, El-Sayed M. and El-Samie, Fathi E. Abd and Ramadan, Khalil F.},
+  journal={IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing}, 
+  title={MAG-ViT: Multi-Attention Grid Vision Transformer for Efficient and Classification-Aware Remote Sensing Super Resolution}, 
+  year={2026},
+  volume={},
+  number={},
+  pages={1-16},
+  doi={10.1109/JSTARS.2026.3726985}}
+
 ``````
 ## Acknowledgements 
 This code is built on [TransENet (Pytorch)](https://github.com/Shaosifan/TransENet) and [BasicSR](https://github.com/XPixelGroup/BasicSR). We thank the authors for sharing the codes.  
