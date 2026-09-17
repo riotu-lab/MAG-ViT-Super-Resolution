@@ -13,7 +13,7 @@ import cv2
 import torch
 import torch.optim as optim
 import torch.optim.lr_scheduler as lrs
-
+from lion import Lion
 from imresize import imresize
 
 
@@ -263,20 +263,34 @@ def bgr2ycbcr(img, only_y=True):
 
 
 def make_optimizer(args, my_model):
-    trainable = filter(lambda x: x.requires_grad, my_model.parameters())
+    trainable = filter(
+        lambda x: x.requires_grad,
+        my_model.parameters()
+    )
 
     if args.optimizer == 'SGD':
         optimizer_function = optim.SGD
         kwargs = {'momentum': args.momentum}
+
     elif args.optimizer == 'ADAM':
         optimizer_function = optim.Adam
         kwargs = {
             'betas': (args.beta1, args.beta2),
             'eps': args.epsilon
         }
+
     elif args.optimizer == 'RMSprop':
         optimizer_function = optim.RMSprop
         kwargs = {'eps': args.epsilon}
+
+    elif args.optimizer == 'LION':
+        optimizer_function = Lion
+        kwargs = {
+            'betas': (
+                args.lion_beta1,
+                args.lion_beta2
+            )
+        }
 
     kwargs['lr'] = args.lr
     kwargs['weight_decay'] = args.weight_decay
@@ -291,14 +305,23 @@ def make_scheduler(args, my_optimizer):
             step_size=args.lr_decay,
             gamma=args.gamma
         )
+
     elif args.decay_type.find('step') >= 0:
         milestones = args.decay_type.split('_')
         milestones.pop(0)
-        milestones = list(map(lambda x: int(x), milestones))
+        milestones = list(map(int, milestones))
+
         scheduler = lrs.MultiStepLR(
             my_optimizer,
             milestones=milestones,
             gamma=args.gamma
+        )
+
+    elif args.decay_type == 'cosine':
+        scheduler = lrs.CosineAnnealingLR(
+            my_optimizer,
+            T_max=args.epochs,
+            eta_min=args.min_lr
         )
 
     return scheduler
