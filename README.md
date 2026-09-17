@@ -84,11 +84,58 @@ For **UCMerced**:
 
 ```
 # x4
-python demo_train.py --model=MAGVIT --dataset=UCMerced --scale=4 --patch_size=192 --loss 1*L1 --lr 1e-4 --ext=img --epochs 2500 --batch_size 8 --n_GPUs 1 --save=MAGVITx4_UCMerced
+python demo_train.py \
+  --model=MAGVIT \
+  --dataset=UCMerced \
+  --scale=4 \
+  --patch_size=192 \
+  --loss 1*L1 \
+  --optimizer LION \
+  --lr 4e-4 \
+  --decay_type cosine \
+  --min_lr 5e-7 \
+  --ext=img \
+  --epochs 2500 \
+  --batch_size 8 \
+  --n_GPUs 1 \
+  --save=MAGVITx4_UCMerced
+```
+
+```
 # x3
-python demo_train.py --model=MAGVIT --dataset=UCMerced --scale=3 --patch_size=144 --loss 1*L1 --lr 1e-4 --ext=img --epochs 2500 --batch_size 8 --save=MAGVITx3_UCMerced
+python demo_train.py \
+  --model=MAGVIT \
+  --dataset=UCMerced \
+  --scale=3 \
+  --patch_size=144 \
+  --loss 1*L1 \
+  --optimizer LION \
+  --lr 4e-4 \
+  --decay_type cosine \
+  --min_lr 5e-7 \
+  --ext=img \
+  --epochs 2500 \
+  --batch_size 8 \
+  --n_GPUs 1 \
+  --save=MAGVITx3_UCMerced
+```
+```
 # x2
-python demo_train.py --model=MAGVIT --dataset=UCMerced --scale=2 --patch_size=96 --loss 1*L1 --lr 1e-4 --ext=img --epochs 2500 --batch_size 8 --save=MAGVITx2_UCMerced
+python demo_train.py \
+  --model=MAGVIT \
+  --dataset=UCMerced \
+  --scale=2 \
+  --patch_size=96 \
+  --loss 1*L1 \
+  --optimizer LION \
+  --lr 4e-4 \
+  --decay_type cosine \
+  --min_lr 5e-7 \
+  --ext=img \
+  --epochs 2500 \
+  --batch_size 8 \
+  --n_GPUs 1 \
+  --save=MAGVITx2_UCMerced
 ```
 
 The train/val data pathes are set in [data/__init__.py](codes/data/__init__.py) 
