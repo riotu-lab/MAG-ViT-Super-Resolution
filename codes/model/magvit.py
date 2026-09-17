@@ -249,6 +249,11 @@ class RelativeSelfAttention(nn.Module):
         self.num_heads: int = num_heads
         self.grid_window_size: Tuple[int, int] = grid_window_size
         # self.scale: float = num_heads ** -0.5
+        if in_channels % num_heads != 0:
+            raise ValueError(
+                f"in_channels ({in_channels}) must be divisible by "
+                f"num_heads ({num_heads})."
+            )
         head_dim = in_channels // num_heads
         self.scale: float = head_dim ** -0.5
         self.attn_area: int = grid_window_size[0] * grid_window_size[1]
