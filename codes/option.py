@@ -79,9 +79,9 @@ parser.add_argument('--reset', action='store_true', default=False,
                     help='reset the training')
 
 
-parser.add_argument('--epochs', type=int, default=500,
+parser.add_argument('--epochs', type=int, default=2500,
                     help='number of epochs to train')
-parser.add_argument('--batch_size', type=int, default=16,
+parser.add_argument('--batch_size', type=int, default=8,
                     help='input batch size for training')
 parser.add_argument('--split_batch', type=int, default=1,
                     help='split the batch into smaller chunks')
@@ -99,19 +99,31 @@ parser.add_argument('--lr', type=float, default=4e-4,
                     help='learning rate')
 parser.add_argument('--lr_decay', type=int, default=400,
                     help='learning rate decay per N epochs')
-parser.add_argument('--decay_type', type=str, default='step',
-                    help='learning rate decay type')
+parser.add_argument('--decay_type', type=str, default='cosine', choices=('step', 'cosine'),
+                    help='learning rate decay type (step | cosine)')
+parser.add_argument('--min_lr', type=float, default=5e-7,
+    help='minimum learning rate for cosine annealing')
+
 parser.add_argument('--gamma', type=float, default=0.5,
                     help='learning rate decay factor for step decay')
-parser.add_argument('--optimizer', default='ADAM',
-                    choices=('SGD', 'ADAM', 'RMSprop'),
-                    help='optimizer to use (SGD | ADAM | RMSprop)')
+
+parser.add_argument('--optimizer', default='LION',
+                    choices=('SGD', 'ADAM', 'RMSprop', 'LION'),
+                    help='optimizer to use (SGD | ADAM | RMSprop | LION)')
+
 parser.add_argument('--momentum', type=float, default=0.9,
                     help='SGD momentum')
 parser.add_argument('--beta1', type=float, default=0.9,
                     help='ADAM beta1')
+
 parser.add_argument('--beta2', type=float, default=0.999,
                     help='ADAM beta2')
+parser.add_argument('--lion_beta1', type=float, default=0.9,
+                    help='Lion beta1')
+
+parser.add_argument('--lion_beta2', type=float, default=0.99,
+                    help='Lion beta2')
+
 parser.add_argument('--epsilon', type=float, default=1e-8,
                     help='ADAM epsilon for numerical stability')
 parser.add_argument('--weight_decay', type=float, default=0,
