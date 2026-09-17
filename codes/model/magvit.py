@@ -248,7 +248,9 @@ class RelativeSelfAttention(nn.Module):
         self.in_channels: int = in_channels
         self.num_heads: int = num_heads
         self.grid_window_size: Tuple[int, int] = grid_window_size
-        self.scale: float = num_heads ** -0.5
+        # self.scale: float = num_heads ** -0.5
+        head_dim = in_channels // num_heads
+        self.scale: float = head_dim ** -0.5
         self.attn_area: int = grid_window_size[0] * grid_window_size[1]
         # Init layers
         self.qkv_mapping = nn.Linear(in_features=in_channels, out_features=3 * in_channels, bias=True)
