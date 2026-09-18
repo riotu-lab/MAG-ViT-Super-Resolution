@@ -53,12 +53,12 @@ By default, it also requires exactly 2,000 images in every condition.
 ```bash
 bash classification/run_x4_evaluation.sh \
   maxvit_t \
-  /data/Image_restoration/magvitpaper/classification/models/Maxvit_class/maxvit_original_LR_x2/maxvit_t_best.pth \
-  /absolute/path/to/_LR_x4 \
-  /absolute/path/to/_MAGViT_x4 \
-  /data/Image_restoration/Datasets/RS_AID_data/AID-dataset/test/out_x4_funsr_full \
-  results/table_viii_x4/maxvit \
-  cuda:4
+  classification/checkpoints/maxvit_t_aid_lr_x2.pth \
+  data/AID_test/LR_x4 \
+  data/AID_test/out_x4 \
+  data/AID_test/funsr_x4 \
+  classification/results/maxvit_x4 \
+  cuda:0
 ```
 
 ## Run ResNeXt-101
@@ -66,12 +66,12 @@ bash classification/run_x4_evaluation.sh \
 ```bash
 bash classification/run_x4_evaluation.sh \
   resnext101_32x8d \
-  /data/Image_restoration/magvitpaper/classification/models/Resnet_x/Resnet_x_original_LR_x2/resnext101_32x8d_best.pth \
-  /absolute/path/to/AID_LR_x4 \
-  /absolute/path/to/AID_MAGViT_x4 \
-  /data/Image_restoration/Datasets/RS_AID_data/AID-dataset/test/out_x4_funsr_full \
-  results/table_viii_x4/resnext101 \
-  cuda:4
+  classification/checkpoints/resnext101_32x8d_aid_lr_x2.pth \
+  data/AID_test/LR_x4 \
+  data/AID_test/out_x4 \
+  data/AID_test/funsr_x4 \
+  classification/results/resnext101_x4 \
+  cuda:0
 ```
 
 Change the two placeholder dataset paths to their real locations. The FunSR x4
