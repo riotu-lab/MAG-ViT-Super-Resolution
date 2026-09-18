@@ -1,0 +1,14 @@
+# Downloaded datasets
+data/
+
+# Classification checkpoints
+classification/checkpoints/*.pth
+classification/checkpoints/*.pt
+
+# Generated classification results
+classification/results/*
+!classification/results/.gitkeep
+
+# Python
+__pycache__/
+*.pyc
