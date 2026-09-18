@@ -191,9 +191,14 @@ To reproduce the evaluation results (PSNR, SSIM, and LPIPS metrics) on the UCMer
 > ```bash
 > pip install basicsr lpips
 > ```
-
 The evaluation code uses metrics from [BasicSR](https://github.com/XPixelGroup/BasicSR) for accurate computation.
 
+## AID Scene-Classification Evaluation
+
+Code, classifier checkpoints, prepared test images, and instructions for
+reproducing Table VIII are available here:
+
+[Classification evaluation instructions](classification/README.md)
 
 ## Citation
 
