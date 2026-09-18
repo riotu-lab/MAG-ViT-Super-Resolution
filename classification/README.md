@@ -10,9 +10,9 @@ conditions.
 The checkpoint search found these paper-classification candidates:
 
 - MaxViT-T trained on LR x2:
-  `/data/Image_restoration/magvitpaper/classification/models/Maxvit_class/maxvit_original_LR_x2/maxvit_t_best.pth`
+  `/maxvit_t_best.pth` : https://drive.google.com/file/d/1SUH3LO9TKbPZmxe3149lD90gRIRk3WMH/view?usp=sharing
 - ResNeXt-101 trained on LR x2:
-  `/data/Image_restoration/magvitpaper/classification/models/Resnet_x/Resnet_x_original_LR_x2/resnext101_32x8d_best.pth`
+  `resnext101_32x8d_best.pth` : https://drive.google.com/file/d/1B1c7NzaRemEO-3JtGFlEGEVmnElj_7YX/view?usp=sharing
 
 The name `LR_x2` describes the data used to train the classifier. The same
 checkpoint can be evaluated on all x4 image conditions. This keeps the
