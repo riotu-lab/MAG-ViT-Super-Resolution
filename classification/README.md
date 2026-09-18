@@ -48,6 +48,21 @@ root/BareLand/image_2.png
 The script fails on unrecognized labels instead of silently excluding images.
 By default, it also requires exactly 2,000 images in every condition.
 
+
+## Setup
+
+```bash
+git clone https://github.com/riotu-lab/MAG-ViT-Super-Resolution.git
+cd MAG-ViT-Super-Resolution
+
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r classification/requirements-classification.txt
+
+mkdir -p classification/checkpoints
+mkdir -p data/AID_test
+```
+
 ## Run MaxViT-T
 
 ```bash
