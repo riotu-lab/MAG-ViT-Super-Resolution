@@ -21,9 +21,12 @@ Download the prepared AID test images:
 
 After downloading and extracting, use:
 
-- `LR_x4` for LR ×4 classification.
-- `out_x4` for MAG-ViT ×4 classification.
---
+```text
+data/AID_test/
+├── LR_x4/      # Bicubic LR ×4 images
+├── out_x4/     # MAG-ViT ×4 reconstructed images
+└── funsr_x4/   # FunSR ×4 reconstructed images
+```
 
 The name `LR_x2` describes the data used to train the classifier. The same
 checkpoint can be evaluated on all x4 image conditions. This keeps the
