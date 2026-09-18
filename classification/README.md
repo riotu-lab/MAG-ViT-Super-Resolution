@@ -5,14 +5,25 @@ classifier**. One checkpoint is loaded once and evaluated on LR x4, MAG-ViT x4,
 and FunSR x4 images. Do not retrain the classifier separately for the three
 conditions.
 
-## Classifier checkpoints
+## Classification checkpoints
 
-The checkpoint search found these paper-classification candidates:
+- [MaxViT-T checkpoint](https://drive.google.com/file/d/1SUH3LO9TKbPZmxe3149lD90gRIRk3WMH/view?usp=sharing)
+  - Filename: `maxvit_t_aid_lr_x2.pth`
 
-- MaxViT-T trained on LR x2:
-  `/maxvit_t_best.pth` : https://drive.google.com/file/d/1SUH3LO9TKbPZmxe3149lD90gRIRk3WMH/view?usp=sharing
-- ResNeXt-101 trained on LR x2:
-  `resnext101_32x8d_best.pth` : https://drive.google.com/file/d/1B1c7NzaRemEO-3JtGFlEGEVmnElj_7YX/view?usp=sharing
+- [ResNeXt-101 checkpoint](https://drive.google.com/file/d/1B1c7NzaRemEO-3JtGFlEGEVmnElj_7YX/view?usp=sharing)
+  - Filename: `resnext101_32x8d_aid_lr_x2.pth`
+ 
+## AID classification test images
+
+Download the prepared AID test images:
+
+[AID test images on Google Drive](https://drive.google.com/drive/folders/1ROlATzYSOmPfZkUG3XqTv5OmCBjIZK_q?usp=sharing)
+
+After downloading and extracting, use:
+
+- `LR_x4` for LR ×4 classification.
+- `out_x4` for MAG-ViT ×4 classification.
+--
 
 The name `LR_x2` describes the data used to train the classifier. The same
 checkpoint can be evaluated on all x4 image conditions. This keeps the
@@ -43,8 +54,8 @@ By default, it also requires exactly 2,000 images in every condition.
 bash classification/run_x4_evaluation.sh \
   maxvit_t \
   /data/Image_restoration/magvitpaper/classification/models/Maxvit_class/maxvit_original_LR_x2/maxvit_t_best.pth \
-  /absolute/path/to/AID_LR_x4 \
-  /absolute/path/to/AID_MAGViT_x4 \
+  /absolute/path/to/_LR_x4 \
+  /absolute/path/to/_MAGViT_x4 \
   /data/Image_restoration/Datasets/RS_AID_data/AID-dataset/test/out_x4_funsr_full \
   results/table_viii_x4/maxvit \
   cuda:4
